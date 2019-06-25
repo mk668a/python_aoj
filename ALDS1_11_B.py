@@ -1,33 +1,30 @@
-# 入力する場合
-# a = [0]
-# for i in range(int(input())):
-#     a.append(list(map(int, input().split())))
+n = int(input())
+a = []
+for i in range(n):
+    b = list(map(int, input().split()))
+    a.append(b[2:])
 
-a = [0, [2, 4], [5], [5, 6], [2], [4], []]
-
-t = [0]
-for i in range(1, len(a)):
-    t.append([False, i])
-
+t = []
+for i in range(n):
+    t.append([0, 0, 0])
 time = 0
 
 
 def dfs(u):
     global time
-    t[u][0] = True
+    t[u][2] = 1
     time += 1
-    t[u].append(time)
-
+    t[u][0] = time
     for v in a[u]:
-        if not t[v][0]:
-            dfs(v)
+        if not t[v - 1][2]:
+            dfs(v - 1)
     time += 1
-    t[u].append(time)
+    t[u][1] = time
 
 
-for i in range(1, len(a)):
-    if not t[i][0]:
+for i in range(n):
+    if not t[i][2]:
         dfs(i)
 
-for x in t[1:]:
-    print(*x[2:])
+for x in range(n):
+    print(x + 1, t[x][0], t[x][1])
