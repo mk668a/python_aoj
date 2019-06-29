@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": [
+    "github",
+    "twitter",
+    "answer",
+    "homepage"
+  ],
+  "properties": {
+    "github": {
+      "type": "string",
+      "title": "GitHubアカウント",
+      "examples": [
+        "motemen"
+      ]
+    },
+    "twitter": {
+      "type": "string",
+      "title": "Twitterアカウント",
+      "examples": [
+        "motemen"
+      ]
+    },
+    "answer": {
+      "type": "string",
+      "title": "問題の解答"
+    },
+    "homepage": {
+      "type": "string",
+      "title": "ホームページ",
+      "description": "ホームページ、ポートフォリオなどのURL",
+      "examples": [
+        "https://motemen.github.io/"
+      ]
+    }
+  }
+}
