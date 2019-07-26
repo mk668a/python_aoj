@@ -1,36 +1,20 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class Rand_b {
+class Rand_a {
 public void rand(){
-        int N[] = {10, 1000, 1000000};
+        int n = 5;
         System.out.println("RAND1");
-        for(int i=0; i<N.length; i++) {
-                System.out.println("n = " + N[i]);
-                int rand1[] = this.RAND1(N[i]);
-                double per_rand1[] = this.histogram(rand1);
-                System.out.println(Arrays.toString(per_rand1));
-        }
-        System.out.println("\n");
-
+        int rand1[] = this.RAND1(n);
+        System.out.println(Arrays.toString(rand1));
 
         System.out.println("RAND2");
-        for(int i=0; i<N.length; i++) {
-                System.out.println("n = " + N[i]);
-                int rand2[] = this.RAND2(N[i]);
-                double per_rand2[] = this.histogram(rand2);
-                System.out.println(Arrays.toString(per_rand2));
-        }
-        System.out.println("\n");
+        int rand2[] = this.RAND2(n);
+        System.out.println(Arrays.toString(rand2));
 
         System.out.println("RAND3");
-        for(int i=0; i<N.length; i++) {
-                System.out.println("n = " + N[i]);
-                int rand3[] = this.RAND3(N[i]);
-                double per_rand3[] = this.histogram(rand3);
-                System.out.println(Arrays.toString(per_rand3));
-        }
-        System.out.println("\n");
+        int rand3[] = this.RAND3(n);
+        System.out.println(Arrays.toString(rand3));
 }
 
 public int[] RAND1(int n){
@@ -106,15 +90,12 @@ public double[] histogram(int R[]){
         }
         for(int i=0; i<10; i++) {
                 per[i] = per[i] / n * 100;
-                // 3 digits after the decimal point
-                per[i] = (int)(per[i]*1000);
-                per[i] /= 1000;
         }
         return per;
 }
 
 public static void main(String[] args){
-        Rand_b b = new Rand_b();
-        b.rand();
+        Rand_a a = new Rand_a();
+        a.rand();
 }
 }
