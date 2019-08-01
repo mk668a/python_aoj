@@ -75,10 +75,18 @@ public static void main(String[] args){
                 // creat n list
                 ArrayList<Integer> S = sort.CreateList(n);
                 // calculate execution time
-                long start = System.nanoTime();
-                sort.RandomizedSort(S);
-                long end = System.nanoTime();
-                System.out.println("time: " + (end - start));
+                ArrayList<Long> time_list = new ArrayList<>();
+                for (int j = 0; j<100; j++) {
+                        long start = System.nanoTime();
+                        sort.RandomizedSort(S);
+                        long end = System.nanoTime();
+                        time_list.add(end - start);
+                }
+                long avg_time = 0;
+                for (int k = 0; k<100; k++) {
+                        avg_time += time_list.get(k);
+                }
+                System.out.println("time: " + (avg_time/100));
                 // next n
                 n *= 10;
         }
@@ -90,10 +98,18 @@ public static void main(String[] args){
                 // creat n list
                 ArrayList<Integer> S = sort.CreateList(n);
                 // calculate execution time
-                long start = System.nanoTime();
-                sort.DeterministicSort(S);
-                long end = System.nanoTime();
-                System.out.println("time: " + (end - start));
+                ArrayList<Long> time_list = new ArrayList<>();
+                for (int j = 0; j<100; j++) {
+                        long start = System.nanoTime();
+                        sort.DeterministicSort(S);
+                        long end = System.nanoTime();
+                        time_list.add(end - start);
+                }
+                long avg_time = 0;
+                for (int k = 0; k<100; k++) {
+                        avg_time += time_list.get(k);
+                }
+                System.out.println("time: " + (avg_time/100));
                 // next n
                 n *= 10;
         }
