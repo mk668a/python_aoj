@@ -1,4 +1,4 @@
-def queen(n, y):
+def n_queen(n, y):
     global count
     if n == y and check(n):
         flag = 1
@@ -19,7 +19,7 @@ def queen(n, y):
         for x in range(n):
             if x not in board:
                 board[y] = x
-                queen(n, y + 1)
+                n_queen(n, y + 1)
                 board[y] = 8
 
 
@@ -39,11 +39,9 @@ def check(n):
 
 
 if __name__ == '__main__':
-    board = [8] * 8
+    n = int(input())
+    board = [n] * n
     r = []
-    for i in range(int(input())):
-        c = list(map(int, input().split()))
-        r.append([c[0], c[1]])
     count = 0
-    queen(8, 0)
+    n_queen(n, 0)
     print(count, "ways")
