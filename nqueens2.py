@@ -9,7 +9,7 @@ def n_queen(n):
 
 
 def put_queens(board, y=0):
-    # print("y =", y)
+    # print("------ y =", y, "------")
     n = len(board)
     if y == n:
         yield board
@@ -17,16 +17,16 @@ def put_queens(board, y=0):
         for x in range(n):
             if not conflict(board, x, y):
                 board[y] = x
-                # print("true", "x =", x, board)
+                # print("true,", board)
                 yield from put_queens(board, y + 1)
-            # print("false", "x =", x, board)
 
 
 def conflict(board, x, y):
+    # print("x =", x)
     # for ty, tx in enumerate(board[:y]):
-    #     if tx == x or tx - ty + y == x or tx + ty - y == x:
+    #     if tx == x or tx + (y - ty) == x or tx - (y - ty) == x:
     #         return True
-    return any(tx == x or tx - ty + y == x or tx + ty - y == x
+    return any(tx == x or tx + (y - ty) == x or tx - (y - ty) == x
                for ty, tx in enumerate(board[:y]))
 
 
