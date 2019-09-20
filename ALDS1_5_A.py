@@ -1,28 +1,30 @@
+# 時間オーバー
+def combine(A):
+    global s
+    n = len(A)
+
+    for std in range(n):
+        for i in range(std, n-1):
+            v = A[std] + A[i+1]
+            s.append(v)
+            B = A[:]
+            B.pop(std)
+            B.pop(i)
+            B.insert(0, v)
+            combine(B)
+
+
 n = int(input())
 A = list(map(int, input().split()))
 q = int(input())
-m = list(map(int, input().split()))
-s = []
+M = list(map(int, input().split()))
+s = A[:]
 
+combine(A)
 
-def solve(i, m):
-    global A
-    global s
-
-    if m == 0:
-        return 1
-    if i >= n:
-        return 0
-    s.append(m)
-    s.append(m - A[i])
-    res = solve(i + 1, m) or solve(i + 1, m - A[i])
-    return res
-
-
-solve(0, 0)
-print(s)
-for i in m:
-    if i in s:
-        print('yes')
+s_ = list(set(s))
+for m in M:
+    if m in s_:
+        print("yes")
     else:
-        print('no')
+        print("no")
