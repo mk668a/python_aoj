@@ -29,5 +29,4 @@ for P in newP_n:
         S_ = changeS(S_, P_n[P[i]])
     R.append(S_)
 
-res = sorted(R)[0]
-print(*res)
+print(*sorted(R)[0])
