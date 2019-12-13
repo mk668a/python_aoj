@@ -1,5 +1,0 @@
-n = int(input())
-gold = list(map(int, input().split()))
-gold.sort()
-gold.reverse()
-print(sum(gold[::2]))
